@@ -17,6 +17,7 @@ import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
 import { Separator } from './ui/separator';
 import paths from '@/paths'; // Fixed import path
+import { ThemeToggle } from './components/theme-toggle';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -43,9 +44,11 @@ export default function Header() {
               <SheetHeader>
                 <SheetTitle className="text-left">Menu</SheetTitle>
               </SheetHeader>
+                      <ThemeToggle/>
               <nav className="flex flex-col gap-1 pt-6">
                 {navItems.map((item) => (
                   <div key={item.name}>
+          
                     <Link
                       href={item.href}
                       className="block px-4 py-2 font-medium hover:bg-accent rounded-md"
@@ -73,6 +76,9 @@ export default function Header() {
         {/* Desktop search */}
         <div className="hidden flex-1 max-w-md md:flex justify-center">
           <SearchInput />
+          
+                      <ThemeToggle/>
+
         </div>
 
         {/* Mobile search button */}
