@@ -5,13 +5,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
+
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Label } from "@/components/ui/label";
 import * as actions from "@/actions";
 import { useActionState } from 'react'
 import FormButton from "../common/form-botton";
+import { PlusCircle } from "lucide-react";
 
 interface PostCreateFormProps {
     slug: string;
@@ -23,11 +24,11 @@ export default function    PostCreateForm({slug}: PostCreateFormProps) {
   return (
     <Popover>
       <PopoverTrigger>
-        <h1 className="p-3 bg-accent rounded">Create Post</h1>
+      <h1 className="flex items-center gap-2 p-3 bg-accent rounded">Create Post <PlusCircle className="h-4 w-4 mr-2  " /></h1>
       </PopoverTrigger>
-      <PopoverContent className="w-96">
-        <form action={action}>
-          <div className="flex flex-col gap-4 p-4 w-80">
+      <PopoverContent   className=" gap-4 w-full  h-auto overflow-hidden">
+        <form action={action} >
+          <div className="flex flex-col gap-4 p-4 w-80 h-full">
             <h3 className="text-lg font-semibold">Create a Post</h3>
             <Label htmlFor="title">Title</Label>
             <Input
@@ -47,7 +48,10 @@ export default function    PostCreateForm({slug}: PostCreateFormProps) {
               id="content"
               name="content"
               placeholder="Topic Content"
-              className={formState.errors.content ? "border-red-500" : ""}
+              rows={4}
+              className={`resize-none min-h-[100px] max-h-[200px] overflow-y-auto ${
+                formState.errors.content ? "border-red-500" : ""
+              }`}
             />
             {formState.errors.content && (
               <p className="text-red-500 text-sm">

@@ -6,13 +6,6 @@ import Link from 'next/link';
 import { useState } from 'react';
 import HeaderAuth from './header-auth';
 import { SearchInput } from './search-input';
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from './ui/navigation-menu';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
 import { Separator } from './ui/separator';
@@ -27,13 +20,15 @@ export default function Header() {
     { name: 'Home', href: paths.home() },
     { name: 'Top Posts', href: '/top-posts' }, // Updated to use paths
     { name: 'About', href: '/about' },
+    { name: 'Contact Us', href: '/contact' },
+    { name: 'Topics', href: '/topic' },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center justify-between gap-4">
         {/* Mobile menu button */}
-        <div className="flex md:hidden">
+        <div className="flex ">
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Open menu">
@@ -65,8 +60,8 @@ export default function Header() {
         </div>
 
         {/* Brand logo/name */}
-        <div className="flex items-center">
-          <nav className="hidden md:block">
+        <div className="flex items-center mr-10">
+          <nav className=" md:block">
             <Link href="/" className="text-2xl font-semibold">
               Pensieve
             </Link>
@@ -74,7 +69,7 @@ export default function Header() {
         </div>
 
         {/* Desktop search */}
-        <div className="hidden flex-1 max-w-md md:flex justify-center">
+        <div className="hidden flex-1 max-w-md md:flex justify-center space-x-1">
           <SearchInput />
           
                       <ThemeToggle/>

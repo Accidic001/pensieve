@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import type { CommentWithAuthur } from "@/db/queries/comments"
 import CommentCreateForm from "@/components/comments/comment-create-form";
 
@@ -34,7 +33,7 @@ export default function CommentShow({ commentId,comments}: CommentShowProps) {
           className="w-10 h-10 rounded-full"
         />
         <div className="flex-1 space-y-3">
-          <p className="text-sm font-medium text-gray-500">
+          <p className="text-sm font-medium text-gray-900">
             {comment.user.name}
           </p>
           <p className="text-gray-900">{comment.content}</p>

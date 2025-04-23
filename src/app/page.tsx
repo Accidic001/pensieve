@@ -6,8 +6,8 @@ import { fetchTopPosts } from "@/db/queries/posts";
 
 export default function Home() {
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex flex-col lg:flex-row gap-4">
+    <div className="container mx-auto p-4 h-screen">
+      <div className="flex flex-col-reverse lg:flex-row gap-4">
         {/* Main content - appears first on mobile */}
         <div className="lg:col-span-3 w-full lg:w-3/4">
           <h1 className="text-xl font-semibold mb-4">Top Posts</h1>
