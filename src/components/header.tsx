@@ -1,4 +1,4 @@
-// components/header.tsx
+
 'use client';
 
 import { Menu, Search } from 'lucide-react';
@@ -9,7 +9,7 @@ import { SearchInput } from './search-input';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
 import { Separator } from './ui/separator';
-import paths from '@/paths'; // Fixed import path
+import paths from '@/paths'; 
 import { ThemeToggle } from './components/theme-toggle';
 
 export default function Header() {
@@ -19,9 +19,9 @@ export default function Header() {
   const navItems = [
     { name: 'Home', href: paths.home() },
     { name: 'Top Posts', href: '/top-posts' }, // Updated to use paths
-    { name: 'About', href: '/about' },
-    { name: 'Contact Us', href: '/contact' },
     { name: 'Topics', href: '/topic' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   return (
@@ -39,7 +39,7 @@ export default function Header() {
               <SheetHeader>
                 <SheetTitle className="text-left">Menu</SheetTitle>
               </SheetHeader>
-                      <ThemeToggle/>
+                      
               <nav className="flex flex-col gap-1 pt-6">
                 {navItems.map((item) => (
                   <div key={item.name}>
@@ -52,9 +52,15 @@ export default function Header() {
                       {item.name}
                     </Link>
                     <Separator className="my-1" />
+                    
                   </div>
                 ))}
               </nav>
+              <div className="flex items-center justify-between mx-3 content-center space-y-2 align-middle">
+             <h1>mode toggle</h1>
+              <ThemeToggle/>
+              </div>
+              
             </SheetContent>
           </Sheet>
         </div>

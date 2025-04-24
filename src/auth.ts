@@ -2,6 +2,9 @@ import NextAuth from "next-auth"
 import GitHub from "next-auth/providers/github"
 import {PrismaAdapter} from "@auth/prisma-adapter"
 import { db } from "@/db"
+import { AdapterUser } from "next-auth/adapters"
+import { Session } from "next-auth"
+
 
 
 const GITHUB_CLIENT_ID=process.env.GITHUB_CLIENT_ID
@@ -19,12 +22,11 @@ export const { handlers:{GET,POST}, auth, signIn, signOut } = NextAuth({
     clientSecret: GITHUB_CLIENT_SECRET,
   })],
   callbacks: {
-    async session({session, user }:any) { 
-        if (session && user) {
-          session.user.id = user.id
-       
-        }
-        return session
+    async session({ session, user }: { session: Session; user: AdapterUser }) {
+      if (session.user && user) {
+        session.user.id = user.id
+      }
+      return session
     }}
 })
 

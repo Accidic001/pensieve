@@ -18,7 +18,13 @@ const contactSchema = z.object({
   message: z.string().min(10, 'Message must be at least 10 characters')
 })
 
-export async function submitContactForm(prevState: any, formData: FormData) {
+interface FormState {
+  success: boolean
+  message: string
+  errors?: Record<string, string[]>
+}
+
+export async function submitContactForm(prevState: FormState, formData: FormData): Promise<FormState> {
   try {
     // Validate form data
     const validatedFields = contactSchema.safeParse({
@@ -40,7 +46,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
     }
 
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'Pensieve Contact <contact@pensieve.com>',
       to: process.env.CONTACT_EMAIL || 'your-email@example.com',
       subject: `New Contact: ${validatedFields.data.subject}`,
@@ -57,17 +63,17 @@ export async function submitContactForm(prevState: any, formData: FormData) {
       }
     }
 
-    // Save to database (optional)
-    // Update the database save portion:
-await db.contactSubmission.create({
-  data: {
-    firstName: validatedFields.data.firstName,
-    lastName: validatedFields.data.lastName,
-    email: validatedFields.data.email,
-    subject: validatedFields.data.subject,
-    message: validatedFields.data.message
-  }
-})
+    // Save to database
+    await db.contactSubmission.create({
+      data: {
+        firstName: validatedFields.data.firstName,
+        lastName: validatedFields.data.lastName,
+        email: validatedFields.data.email,
+        subject: validatedFields.data.subject,
+        message: validatedFields.data.message
+      }
+    })
+
     return {
       success: true,
       message: 'Thank you! Your message has been sent successfully.'

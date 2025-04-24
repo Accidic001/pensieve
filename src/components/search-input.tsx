@@ -24,7 +24,6 @@ interface SearchResult {
 export function SearchInput() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
-  const [debouncedQuery] = useDebounce(searchQuery, 300);
   const [searchResults, setSearchResults] = useState<SearchResult | null>(null);
   const [open, setOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);

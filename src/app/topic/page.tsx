@@ -1,22 +1,20 @@
 // app/topics/page.tsx
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Search, } from "lucide-react";
 import  paths  from "@/paths";
 import { db } from "@/db";
 import TopicCreateForm from "@/components/topics/topic-create-form";
 import { SearchInput } from "@/components/search-input";
 
-interface Topic {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  postCount: number;
-  lastUpdated: Date;
-}
+// interface Topic {
+//   id: string;
+//   slug: string;
+//   title: string;
+//   description: string;
+//   postCount: number;
+//   lastUpdated: Date;
+// }
 
 export default async function TopicsPage() {
   const topics = await db.topic.findMany({
