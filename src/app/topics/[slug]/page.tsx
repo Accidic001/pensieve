@@ -5,8 +5,8 @@ import { fetchPostsByTopicSlug } from "@/db/queries/posts";
 
 interface TopicShowPageProps {
     params: { slug: string };
-
-}
+    searchParams?: { [key: string]: string | string[] | undefined };
+  }
 
 
 export default async function TopicShowPage({params}: TopicShowPageProps) { 
