@@ -11,7 +11,7 @@ import { Textarea } from "../ui/textarea";
 import { Label } from "@/components/ui/label";
 import * as actions from "@/actions";
 import { useActionState } from 'react'
-import FormButton from "../common/form-botton";
+import FormButton from "../common/form-button";
 import { PlusCircle } from "lucide-react";
 
 interface PostCreateFormProps {

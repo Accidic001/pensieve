@@ -10,7 +10,7 @@ import { Textarea } from "../ui/textarea";
 import { Label } from "@/components/ui/label";
 import * as actions from "@/actions";
 import { useActionState } from 'react'
-import FormButton from "../common/form-botton";
+import FormButton from "../common/form-button";
 import {  PlusCircle } from "lucide-react";
 
 
@@ -21,11 +21,7 @@ export default function TopicCreateForm() {
   return (
     <Popover>
       <PopoverTrigger>
-       
-
         <h1 className="flex items-center gap-2 p-3 bg-accent rounded">Create Topic <PlusCircle className="h-4 w-4 mr-2  " /></h1> 
-      
-        
       </PopoverTrigger>
       <PopoverContent className="w-96">
         <form action={action}>

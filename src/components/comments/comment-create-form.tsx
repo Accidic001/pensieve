@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import * as actions from "@/actions";
 import { Textarea } from "../ui/textarea";
 import { useActionState } from 'react'
-import FormButton from "../common/form-botton";
+import FormButton from "../common/form-button";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 
