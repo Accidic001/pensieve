@@ -1,5 +1,4 @@
 import { db } from "@/db";
-import Link from "next/link";
 import { Badge } from "../ui/badge";
 import  paths  from "@/paths";
 
