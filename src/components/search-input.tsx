@@ -4,7 +4,6 @@
 import { Search, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState, useRef } from 'react';
-import { useDebounce } from 'use-debounce';
 import {
   Command,
   CommandEmpty,
