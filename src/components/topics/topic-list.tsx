@@ -5,8 +5,8 @@ import  paths  from "@/paths";
 
 export default async function TopicList() {
 
-const topics=await db.topic.findMany();
-const renderedTopics=topics.map((topic)=>{
+const topics = await db.topic.findMany();
+const renderedTopics = topics.map((topic: { id: string; slug: string }) => {
     return(
         <div key={topic.id}>
             <a href={paths.showTopics(topic.slug)}>

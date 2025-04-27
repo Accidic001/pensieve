@@ -22,7 +22,17 @@ export default async function TopicsPage() {
     }
   });
 
-  const formattedTopics = topics.map(topic => ({
+  type Topic = {
+    id: string;
+    slug: string;
+    title?: string;
+    description: string;
+    _count: { posts: number };
+    posts: { updatedAt: Date }[];
+    createdAt: Date;
+  };
+
+  const formattedTopics = topics.map((topic: Topic) => ({
     id: topic.id,
     slug: topic.slug,
     // title: topic.title,
