@@ -6,10 +6,10 @@ import paths from "@/paths";
 import { fetchCommentsByPostId } from "@/db/queries/comments";
 
 interface PostShowPageProps {
-  params: {
+  params: Promise<{
     slug: string;
     postId: string;
-  };
+  }>;
 }
 
 export default async function PostShowPage({ params }: PostShowPageProps) {
@@ -17,12 +17,15 @@ export default async function PostShowPage({ params }: PostShowPageProps) {
 
   return (
     <div className="space-y-3">
-      <Link className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors" href={paths.showTopics(slug)}>
+      <Link
+        className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
+        href={paths.showTopics(slug)}
+      >
         {"←"}Back to {slug}
       </Link>
-      <PostShow postId= {postId}/>
+      <PostShow postId={postId} />
       <CommentCreateForm postId={postId} startOpen />
-      <CommentList  fetchData={()=> fetchCommentsByPostId(postId)} />
+      <CommentList fetchData={() => fetchCommentsByPostId(postId)} />
     </div>
   );
 }
