@@ -22,6 +22,7 @@ export default function Header() {
     { name: 'Topics', href: '/topic' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact Us', href: '/contact' },
+    { name: 'My Posts', href: '/my-posts' },
   ];
 
   return (

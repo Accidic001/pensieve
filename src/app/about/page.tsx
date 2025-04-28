@@ -36,7 +36,7 @@ const unsplashImages = {
   hero: {
     url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&auto=format",
     alt: "Workspace with notebook and pen",
-    credit: "Photo by Campaign Creators on Unsplash"
+    credit: "by Accidic"
   },
   mission1: {
     url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format",
@@ -52,22 +52,21 @@ const unsplashImages = {
     {
       url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format",
       alt: "Portrait of man",
-      credit: "Photo by Joseph Gonzalez on Unsplash"
     },
+    
     {
       url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format",
       alt: "Portrait of woman",
-      credit: "Photo by Amy Hirschi on Unsplash"
     },
+
     {
       url: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=400&auto=format",
       alt: "Portrait of man",
-      credit: "Photo by Oz Seyrek on Unsplash"
     },
+
     {
       url: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format",
       alt: "Portrait of woman",
-      credit: "Photo by Sindre Fs on Unsplash"
     }
   ]
 };
@@ -151,7 +150,7 @@ export default function AboutPage() {
             }
           ].map((item, index) => (
             <motion.div key={index} variants={fadeInUp}>
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+              <Card className="h-full flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
                 <motion.div 
                   whileHover={{ scale: 1.03 }}
                   className="relative h-48"
@@ -166,11 +165,9 @@ export default function AboutPage() {
                 <CardHeader>
                   <CardTitle>{item.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>{item.description}</p>
-                  <p className="text-xs text-muted-foreground mt-2">
-                    {item.image.credit}
-                  </p>
+                <CardContent >
+                <p className="line-clamp-4">{item.description}</p>
+                  
                 </CardContent>
               </Card>
             </motion.div>
@@ -191,7 +188,7 @@ export default function AboutPage() {
               whileHover={{ y: -5 }}
               transition={{ type: "spring" }}
             >
-              <Card className="text-center overflow-hidden">
+              <Card className="text-center overflow-hidden h-full">
                 <motion.div 
                   whileHover={{ scale: 1.05 }}
                   className="relative h-48 w-full"
@@ -209,9 +206,6 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm">{member.bio}</p>
-                  <p className="text-xs text-muted-foreground mt-2">
-                    {unsplashImages.team[index].credit}
-                  </p>
                 </CardContent>
               </Card>
             </motion.div>
