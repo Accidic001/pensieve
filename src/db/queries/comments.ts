@@ -1,5 +1,16 @@
-import type { Comment } from "@prisma/client";
+// import type { Comment } from "@prisma/client";
 import {db} from "@/db"
+
+
+
+
+
+type Comment = {
+    id:string;
+    content:string;
+    createdAt:Date;
+    updatedAt:Date;
+}
 
 export type CommentWithAuthur =(
     Comment &{user:{name:string | null,image:string|null }}
