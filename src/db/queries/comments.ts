@@ -15,6 +15,8 @@ type Comment = {
 export type CommentWithAuthur =(
     Comment &{
         parentId:string | null;
+        postId:string;
+        userId:string;
         user:{name:string | null,image:string|null, }}
 )
 
