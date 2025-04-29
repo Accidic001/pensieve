@@ -13,7 +13,9 @@ type Comment = {
 }
 
 export type CommentWithAuthur =(
-    Comment &{user:{name:string | null,image:string|null }}
+    Comment &{
+        parentId:string | null;
+        user:{name:string | null,image:string|null, }}
 )
 
 export function fetchCommentsByPostId(postId:string):Promise<CommentWithAuthur[]>{
