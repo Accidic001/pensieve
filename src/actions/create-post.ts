@@ -1,12 +1,23 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import type { Post } from "@prisma/client";
+// import type { Post } from "@prisma/client";
 import { db } from "@/db";
 import path from "@/paths";
 import { z } from "zod";
 import { auth } from "@/auth";
 import { revalidatePath } from "next/cache";
+
+
+type Post = {
+  id: string;
+  title: string;
+  content: string;
+  userId: string;
+  topicId: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 interface CreatePostFormState {
   errors: {
