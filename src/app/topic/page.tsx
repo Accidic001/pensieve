@@ -70,7 +70,7 @@ export default async function TopicsPage() {
                 <CardTitle className="text-lg capitalize">{topic.slug}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4 capitalize">{topic.description}</p>
+                <p className="text-muted-foreground mb-4 capitalize line-clamp-3">{topic.description}</p>
                 <div className="flex justify-between text-sm text-muted-foreground">
                   <span>{topic.postCount} posts</span>
                   <span>

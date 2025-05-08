@@ -60,3 +60,23 @@ export async function fetchPostsByUserId(userId: string): Promise<PostWithData[]
     return [];
   }
 }
+
+export default async function PostsPage() {
+  // Fetch all posts with their topics
+  const posts = await db.post.findMany({
+    include: {
+      topic: {
+        select: {
+          slug: true,
+        },
+      },
+      user: {
+        select: {
+          name: true,
+        },
+      },
+    },
+    orderBy: {
+      createdAt: 'desc', // Newest first
+    },
+  })}

@@ -14,7 +14,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t mt-10 py-6 text-sm text-muted-foreground " >
+    <footer className="border-t mb-10 py-6 text-sm text-muted-foreground mt-5" >
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3">
         <p className="text-center md:text-left">&copy; {new Date().getFullYear()} YourApp. All rights reserved.</p>
         <nav className="flex gap-4">

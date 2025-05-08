@@ -40,7 +40,7 @@ export default function HeaderAUth(){
         else{
          
           authContent = 
-          <>
+          <div className="flex items-center space-x-2">
           <form action={actions.signIn}><Button  color="secondary" variant="outline">
           Sign In</Button>
           </form>
@@ -48,7 +48,7 @@ export default function HeaderAUth(){
           <Button color="primary" variant="secondary">
           Sign Up</Button>
           </form>
-          </>
+          </div>
         }
 
     return authContent;

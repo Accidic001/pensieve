@@ -11,10 +11,13 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './ui
 import { Separator } from './ui/separator';
 import paths from '@/paths'; 
 import { ThemeToggle } from './components/theme-toggle';
+import { useSession } from 'next-auth/react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const Session = useSession();
+ 
   
   const navItems = [
     { name: 'Home', href: paths.home() },
@@ -26,7 +29,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky flex top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center justify-between gap-4">
         {/* Mobile menu button */}
         <div className="flex ">
@@ -67,9 +70,9 @@ export default function Header() {
         </div>
 
         {/* Brand logo/name */}
-        <div className="flex items-center mr-10">
+        <div className="flex items-center mr-2 ml-2">
           <nav className=" md:block">
-            <Link href="/" className="text-2xl font-semibold">
+            <Link href="/" className=" sm:text-xl text-2xl font-semibold">
               Pensieve
             </Link>
           </nav>
@@ -84,7 +87,9 @@ export default function Header() {
         </div>
 
         {/* Mobile search button */}
-        <div className="md:hidden">
+        
+        { Session.status === "authenticated" ?
+          <div className="md:hidden">
           <Button 
             variant="ghost" 
             size="icon" 
@@ -93,10 +98,13 @@ export default function Header() {
           >
             <Search className="h-5 w-5" />
           </Button>
-        </div>
+        </div> : null
+        }
+        
+       
 
         {/* Auth section */}
-        <div className="flex items-center justify-end space-x-2">
+        <div className="flex items-center justify-end space-x-2 mr-5">
           <HeaderAuth />
         </div>
       </div>
