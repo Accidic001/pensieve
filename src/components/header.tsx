@@ -61,7 +61,7 @@ export default function Header() {
                 ))}
               </nav>
               <div className="flex items-center justify-between mx-3 content-center space-y-2 align-middle">
-             <h1 className='bold text-xl font-medium'>mode toggle</h1>
+             <h1 className='bold text-sm font-medium mx-2'>Theme Toggle</h1>
               <ThemeToggle/>
               </div>
               

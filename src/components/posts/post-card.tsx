@@ -48,7 +48,7 @@ export function AllPost({ post, index ,user}: AllPostProps) {
       <CardFooter className="flex justify-between items-center py-2">
       
         <div className="flex items-center gap-4 text-sm">
-          <span className="flex items-center gap-1 text-muted-foreground">
+          <span className="flex items-center gap-2 text-muted-foreground">
           {user.image && (
                   <img 
                     src={user.image} 
@@ -60,7 +60,7 @@ export function AllPost({ post, index ,user}: AllPostProps) {
                   {user?.name || 'Anonymous'}
                 </span>
           </span>
-          <span className="flex items-center gap-1 text-muted-foreground  md:block hidden">
+          <span className="lg:flex items-center gap-1 text-muted-foreground  hidden">
             <MessageSquare className="h-4 w-4" />
             {post._count.comments}
           </span>

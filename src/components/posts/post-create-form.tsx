@@ -43,7 +43,7 @@ export default function    PostCreateForm({slug}: PostCreateFormProps) {
                 {formState.errors.title.join(", ")}
               </p>
             )}
-            <Label htmlFor="content">Content</Label>
+            <Label htmlFor="content">Content of post</Label>
             <Textarea
               id="content"
               name="content"

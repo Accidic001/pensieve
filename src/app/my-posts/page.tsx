@@ -33,7 +33,7 @@ export default async function MyPostsPage({ params }: MyPostPageProps) {
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-bold">My Posts</h1>
       </div>
-      <div className="flex justify-around">
+      <div className="flex justify-between mb-4">
         <PostCreateForm slug={slug}/>
         <TopicCreateForm/>
       </div>

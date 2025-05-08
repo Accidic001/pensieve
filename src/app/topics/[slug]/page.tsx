@@ -17,13 +17,16 @@ export default async function TopicShowPage({ params }: PageProps) {
      
       
       <div className="col-span-4 lg:col-span-3 p-2 md:col-span-3">
-      <div className="p-2 mb-4">
+      <div className="p-2 mb-4 flex justify-between items-center">
       <Link
         className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
         href="/topic"
       >
         {"←"}Back to Topics
-      </Link>
+      </Link> 
+      <div className="hidden sm:block md:hidden lg:hidden">
+      <PostCreateForm slug={slug} />
+      </div>
       </div>
         <h1 className="text-2xl font-bold mb-2">{slug}</h1>
         <PostList fetchData={() => fetchPostsByTopicSlug(slug)} />
