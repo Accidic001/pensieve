@@ -92,5 +92,7 @@ export async function createPost(
   }
 
   revalidatePath(path.showTopics(slug));
+  revalidatePath(path.postShow(slug, post.id));
+  revalidatePath(path.home());
   redirect(path.postShow(slug, post.id));
 }

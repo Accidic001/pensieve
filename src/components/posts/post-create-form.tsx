@@ -47,7 +47,7 @@ export default function    PostCreateForm({slug}: PostCreateFormProps) {
             <Textarea
               id="content"
               name="content"
-              placeholder="Topic Content"
+              placeholder="Post Content"
               rows={4}
               className={`resize-none min-h-[100px] max-h-[200px] overflow-y-auto ${
                 formState.errors.content ? "border-red-500" : ""
